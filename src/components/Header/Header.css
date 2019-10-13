@@ -1,0 +1,37 @@
+.App-header {
+    background-color: cornflowerblue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    height: 50px;
+}
+
+.Logo a{
+    /*font-family: 'StoneWalls';*/
+    font-size: calc(20px + 6vmin);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.Logo {
+    background-color: rgba(255, 255, 255, 0.63);
+    align-self: center;
+    /*padding-top: 16px;*/
+    margin: auto 0;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .App-header{
+        flex-direction: column;
+        justify-content: left;
+        text-align: left;
+    }
+
+    .App-header-open{
+        height:auto;
+        /*max-height: 100vh;*/
+    }
+}

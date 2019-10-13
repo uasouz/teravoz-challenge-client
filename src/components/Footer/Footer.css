@@ -1,0 +1,51 @@
+.Footer {
+    background-color: var(--daora);
+    font-size: calc(15px + 2vmin);
+    clear: both;
+    position: relative;
+    /*height: 200px;*/
+    /*width: 100%;*/
+    /*margin-top: -200px;*/
+    /*width: 100%;*/
+    padding: 16px;
+    /*align-content: center;*/
+    /*text-align: center;*/
+    /*display: inline-flex;*/
+    /*font-family: "StoneWalls";*/
+}
+
+.FooterContent{
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin: auto 0;
+    justify-content: center;
+    display: flex;
+}
+
+.Footer h2{
+    display: block;
+}
+
+.FooterLogo{
+    flex: 1 0 0;
+}
+
+.WorkingHours{
+    color: snow;
+    flex: 2 0 0;
+    font-size: calc(15px + 1vmin);
+}
+
+@media only screen and (max-width: 768px) {
+
+    .FooterLogo{
+        align-self: center;
+    }
+
+    .FooterContent{
+        align-items: center;
+        flex-direction: column;
+    }
+
+}
