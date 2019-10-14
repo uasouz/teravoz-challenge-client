@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
     paper: {
         padding: theme.spacing(2),
         textAlign: 'left',
+        marginTop: 10,
         color: theme.palette.text.secondary,
     },
     modalPaper: {
