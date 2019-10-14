@@ -2,12 +2,24 @@ import React from "react"
 import "./MainContent.css"
 import CallList from "../CallList";
 import store from "../../modules/store";
+import {Grid} from "@material-ui/core";
 
 const MainContent = () => {
-    console.log("State",store.getState());
+    console.log("State", store.getState());
     return (
         <main className="Main">
-            <CallList/>
+            <Grid className={"dashboard"}
+                  spacing={1}
+                  container
+                  direction="row"
+                  justify="center"
+                  alignItems="center">
+                <CallList filteredState={"NEW"}/>
+                <CallList filteredState={"STANDBY"}/>
+                <CallList filteredState={"WAITING"}/>
+                <CallList filteredState={"ONGOING"}/>
+                <CallList filteredState={"FINISHED"}/>
+            </Grid>
         </main>
     )
 };

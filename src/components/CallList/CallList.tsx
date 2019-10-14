@@ -1,29 +1,57 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {connect} from 'react-redux';
 import "./CallList.css"
 import CallItem from "./sub-components/CallItem";
-import {wsConnect} from "../../modules/websocket";
+import {Grid, makeStyles, Paper, Typography} from "@material-ui/core";
+import {Call} from "../../models/Call";
 
-class CallList extends Component<{ calls: any, dispatch: any }> {
-    componentDidMount(): void {
-        const { dispatch } = this.props;
-        const host = `ws://127.0.0.1:4000`;
-        dispatch(wsConnect(host));
-    }
+const useStyles = makeStyles(theme => ({
+    root: {
+        flexGrow: 1,
+    }, paper: {
+        padding: theme.spacing(2),
+        textAlign: 'left',
+        color: theme.palette.text.secondary,
+    },
+}));
 
-    render() {
-        let {calls} = this.props;
-        return (<div className="callList">
+const CallList = ({calls, filteredState = "ONGOING", dispatch}: { calls: any, filteredState: string, dispatch: any }) => {
+    const classes = useStyles();
+    const callListBody = () => {
+        if (calls.length === 0) {
+            return <Typography>Empty List</Typography>
+        } else {
+            return <Grid className={"callList"}
+                         spacing={2}
+                         container
+                         direction="column"
+                         justify="center"
+                         alignItems="center">
+                {calls}
+            </Grid>
+        }
+    };
+    return (
+        <Paper className={classes.root}>
+            <Typography>{filteredState} Calls</Typography>
             {
-                calls.list.map((value: any, index: string | number | undefined) => {
-                    return <CallItem call={value} key={value.id}/>
-                })
+                callListBody()
             }
-        </div>)
-    }
-}
+        </Paper>)
+};
 
-const mapStateToProps = (state: any) => ({calls: state.calls});
+const mapStateToProps = (state: any, ownProps: any) => {
+    const {filteredState} = ownProps;
+    return ({
+        calls: state.calls.list
+            .filter((call: Call) => {
+                return call.state === filteredState
+            })
+            .map((value: any, index: string | number | undefined) => {
+                return <CallItem call={value} key={value.id}/>
+            })
+    });
+};
 
 
 export default connect(mapStateToProps)(CallList);

@@ -1,14 +1,14 @@
 .App-header {
-    background-color: cornflowerblue;
-    display: flex;
+    background-color: dodgerblue;
+    /*display: flex;*/
     flex-direction: row;
     align-items: center;
-    position: relative;
+    text-align: center;
     height: 50px;
+    color: snow;
 }
 
 .Logo a{
-    /*font-family: 'StoneWalls';*/
     font-size: calc(20px + 6vmin);
     font-weight: bold;
     text-decoration: none;

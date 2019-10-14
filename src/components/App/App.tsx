@@ -9,7 +9,6 @@ const App: React.FC = () => {
       <div className="App">
         <Header/>
         <MainContent/>
-        <Footer/>
       </div>
   );
 }

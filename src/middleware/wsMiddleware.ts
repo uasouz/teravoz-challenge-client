@@ -1,6 +1,5 @@
 import * as actions from '../modules/websocket';
 import {listCalls, listCallsResponse} from "../modules/calls";
-import store from "../modules/store";
 
 const socketMiddleware = () => {
     let websocket: WebSocket | null;
@@ -57,7 +56,7 @@ const socketMiddleware = () => {
                     "event": "ListCalls",
                     "data": {
                         "params": {
-                            "state": action.data.params.state
+                            // "state": action.data.params.state
                         }
                     }
                 }));
