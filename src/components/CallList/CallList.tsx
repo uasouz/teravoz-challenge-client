@@ -15,11 +15,13 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const CallList = ({calls, filteredState = "ONGOING", dispatch}: { calls: any, filteredState: string, dispatch: any }) => {
+const CallList = ({calls, filteredState = "ONGOING", dispatch}: { calls: any, filteredState?: string, dispatch: any }) => {
     const classes = useStyles();
+
+
     const callListBody = () => {
         if (calls.length === 0) {
-            return <Typography>Empty List</Typography>
+            return <Typography component={"p"}>Empty List</Typography>
         } else {
             return <Grid className={"callList"}
                          spacing={2}
@@ -31,13 +33,14 @@ const CallList = ({calls, filteredState = "ONGOING", dispatch}: { calls: any, fi
             </Grid>
         }
     };
-    return (
-        <Paper className={classes.root}>
-            <Typography>{filteredState} Calls</Typography>
+    return (<Grid item className={classes.root}>
+        <Paper className={classes.paper}>
+            <Typography component={"h3"}>{filteredState} Calls</Typography>
             {
                 callListBody()
             }
-        </Paper>)
+        </Paper>
+    </Grid>)
 };
 
 const mapStateToProps = (state: any, ownProps: any) => {

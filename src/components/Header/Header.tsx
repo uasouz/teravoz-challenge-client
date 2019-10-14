@@ -6,7 +6,7 @@ import {Typography} from "@material-ui/core";
 const Header = () => {
     return (
         <header className="App-header">
-            <Typography>TeraVoz Client Dashboard</Typography>
+            <Typography variant="h3" component="h4">TeraVoz Client Dashboard</Typography>
         </header>
     )
 };

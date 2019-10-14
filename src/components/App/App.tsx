@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import MainContent from "../MainContent";
 import Header from "../Header";
-import Footer from "../Footer";
 
 const App: React.FC = () => {
   return (
@@ -11,6 +10,6 @@ const App: React.FC = () => {
         <MainContent/>
       </div>
   );
-}
+};
 
 export default App;

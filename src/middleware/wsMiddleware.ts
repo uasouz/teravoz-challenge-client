@@ -21,6 +21,7 @@ const socketMiddleware = () => {
                 console.log("State",store.getState());
                 break;
             case 'ListCallEvents':
+                console.log(payload);
                 store.dispatch({type: "LIST_CALL_EVENTS_RESPONSE",data: payload.data});
                 break;
             default:
@@ -30,6 +31,7 @@ const socketMiddleware = () => {
     };
 
     return (store: any) => (next: any) => (action: any) => {
+        console.log(action);
         switch (action.type) {
             case 'WS_CONNECT':
                 if (websocket !== null && websocket !== undefined) {
@@ -66,7 +68,7 @@ const socketMiddleware = () => {
                     JSON.stringify({
                         event: 'ListCallEvents',
                         data: {
-                            call_id: action.call_id
+                            call_id: action.data.call_id
                         },
                     }),
                 );

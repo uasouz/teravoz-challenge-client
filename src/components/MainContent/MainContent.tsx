@@ -9,11 +9,11 @@ const MainContent = () => {
     return (
         <main className="Main">
             <Grid className={"dashboard"}
-                  spacing={1}
+                  spacing={2}
                   container
                   direction="row"
-                  justify="center"
-                  alignItems="center">
+                  justify={"center"}
+                  alignItems="stretch">
                 <CallList filteredState={"NEW"}/>
                 <CallList filteredState={"STANDBY"}/>
                 <CallList filteredState={"WAITING"}/>
