@@ -15,7 +15,6 @@ const socketMiddleware = () => {
 
     const onMessage = (store: any) => (event: any) => {
         const payload = JSON.parse(event.data);
-        console.log(payload);
         switch (payload.event) {
             case 'ListCalls':
                 store.dispatch(listCallsResponse(payload.data));
@@ -24,7 +23,6 @@ const socketMiddleware = () => {
                 store.dispatch(listCalls());
                 break;
             case 'ListCallEvents':
-                console.log(payload);
                 store.dispatch({type: "LIST_CALL_EVENTS_RESPONSE",data: payload.data});
                 break;
             default:
