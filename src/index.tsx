@@ -14,7 +14,7 @@ const Root = ({ store }: {store: any}) => (
         <Provider store={store}>
             <Route path="/" component={App} />
             <WebSocketConnection
-                host={`ws://127.0.0.1:4000`}/>
+                host={`ws://${process.env.REACT_APP_WS_ADDR}:4000`}/>
         </Provider>
     </Router>
 );
